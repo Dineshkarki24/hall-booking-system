@@ -18,6 +18,7 @@ public class HallEntity {
     @Id
     private long id;
     private String name;
+    private String description;
     private String image;
 
 }

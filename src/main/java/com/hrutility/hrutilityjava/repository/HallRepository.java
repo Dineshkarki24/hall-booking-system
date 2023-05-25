@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface HallRepository extends JpaRepository<HallEntity,Long> {
-    List<HallEntity> findAllHallList();
-
-    List<HallEntity> findListById(Long hallId);
+//    List<HallEntity> findAllHallList();
+//
+//    List<HallEntity> findListById(Long hallId);
 }

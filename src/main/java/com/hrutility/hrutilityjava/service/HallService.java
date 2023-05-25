@@ -56,7 +56,6 @@ public class HallService {
             }
 
         } catch (Exception ex) {
-
             log.error("Execption occured while retriving hall list form database.");
         }
 

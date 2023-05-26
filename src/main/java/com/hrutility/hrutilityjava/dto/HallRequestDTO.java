@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 @Data
 @AllArgsConstructor
@@ -15,5 +16,6 @@ public class HallRequestDTO {
     private String name;
     @NotBlank(message = "Image is reuired")
     private String image;
+    private MultipartFile multipartFile;
     private String description;
 }

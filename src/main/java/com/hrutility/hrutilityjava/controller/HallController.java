@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class HallController {
     }
 
     @PostMapping
-    public  ResponseEntity<APIResponse> saveHall(@RequestBody @Valid HallRequestDTO hallRequestDTO){
+    public  ResponseEntity<APIResponse> saveHall(@ModelAttribute HallRequestDTO hallRequestDTO){
         HallResponseDTO hallResponseDTO = hallService.createHall(hallRequestDTO);
 
 //        builder design pattern
@@ -38,6 +39,8 @@ public class HallController {
                 status(SUCCESS).results(hallResponseDTO).build();
 
         return new ResponseEntity<>(responseDTO,HttpStatus.CREATED);
-
     }
+
+//    @DeleteMapping
+
 }

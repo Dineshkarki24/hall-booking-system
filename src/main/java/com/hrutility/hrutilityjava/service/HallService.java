@@ -5,6 +5,7 @@ import com.hrutility.hrutilityjava.dto.HallResponseDTO;
 import com.hrutility.hrutilityjava.entity.HallEntity;
 import com.hrutility.hrutilityjava.exception.HallServiceBusinessExecption;
 import com.hrutility.hrutilityjava.repository.HallRepository;
+import com.hrutility.hrutilityjava.util.FileUploadUtil;
 import com.hrutility.hrutilityjava.util.ValueMapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +31,8 @@ public class HallService {
             log.info("HallService.createHall execution start");
             HallEntity hall = ValueMapper.convertToEntity(hallRequestDTO);
             log.debug("hallService.createNewHall request parameters {}", ValueMapper.jsonAsString(hallRequestDTO));
-
+            String fileName = FileUploadUtil.saveFile("hall",hallRequestDTO.getMultipartFile());
+            hall.setImage(fileName);
             HallEntity hallCreatedData = hallRepository.save(hall);
             hallResponseDTO = ValueMapper.convertToDTO(hallCreatedData);
             log.debug("hallservice.createHall received response from database {}", ValueMapper.jsonAsString(hallRequestDTO));
